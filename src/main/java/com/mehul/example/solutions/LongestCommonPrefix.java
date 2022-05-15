@@ -42,9 +42,9 @@ public class LongestCommonPrefix {
 	}
 
 	public static void main(String[] args) {
-//		String[] strs = { "flower", "flow", "flight" };
+		String[] strs = { "flower", "flow", "flight" };
 //		String[] strs = { "a" };
-		String[] strs = { "dog", "racecar", "car" };
+//		String[] strs = { "dog", "racecar", "car" };
 //		String[] strs = { "ab", "a" };
 		String longestPrefixIs = LongestCommonPrefix.longestCommonPrefix(strs);
 		System.out.println("Result : " + longestPrefixIs);
