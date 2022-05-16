@@ -4,6 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/*
+ * Defination : Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 
+ * such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
+ *	Notice that the solution set must not contain duplicate triplets.
+ * */
 public class SumOfTripletsShouldBeZero {
 
 	public List<List<Integer>> threeSum(int[] nums) {
@@ -23,6 +28,10 @@ public class SumOfTripletsShouldBeZero {
 				int sum = nums[First1stIDX] + nums[Second2ndIDX] + nums[third3ndIDX];
 				if (sum == 0) {
 					result.add(Arrays.asList(nums[First1stIDX], nums[Second2ndIDX], nums[third3ndIDX]));
+					third3ndIDX--;
+					while (Second2ndIDX < third3ndIDX && nums[third3ndIDX] == nums[third3ndIDX + 1]) {
+						third3ndIDX--;
+					}
 				} else if (sum > 0) {
 					third3ndIDX--;
 				} else {
@@ -40,8 +49,6 @@ public class SumOfTripletsShouldBeZero {
 //		int[] numberArray = { 0, 0, 0 };
 		// int[] numberArray = { -2, 0, 1, 1, 2 };
 //		int[] numberArray = { -1, 2, 3, 4, 0, 1 };
-		
 		System.out.println(obj.threeSum(numberArray));
-
 	}
 }
