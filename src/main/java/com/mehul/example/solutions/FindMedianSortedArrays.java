@@ -15,7 +15,6 @@ public class FindMedianSortedArrays {
 			double sum = mergedNums[midIndex - 1] + mergedNums[midIndex];
 			median = sum / 2;
 		} else {
-			d += .5;
 			median = mergedNums[midIndex];
 		}
 		return median;
