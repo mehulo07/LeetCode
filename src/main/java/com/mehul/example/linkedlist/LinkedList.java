@@ -1,4 +1,4 @@
-package com.mehul.example;
+package com.mehul.example.linkedlist;
 
 public class LinkedList {
 
