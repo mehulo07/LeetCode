@@ -56,6 +56,7 @@ public class LinkedList {
 		lastNode.next = newNode;
 	}
 
+	// Time Complexity O(n)
 	public void delete(Node node) {
 		if (node == null) {
 			return;
@@ -72,6 +73,35 @@ public class LinkedList {
 		}
 		nodePosition.next = node.next;
 		node.next = null;
+	}
+
+	/**
+	 * This method will delete node from given index
+	 * 
+	 * @param int index
+	 */
+	public void deleteNodeByIndex(int index) {
+		int itrInx = 0;
+		Node tempHead = head;
+		if (head == null) {
+			System.out.println("linkedList is empty");
+			return;
+		}
+
+		if (index == 0) {
+			head = head.next;
+			return;
+		}
+
+		while (tempHead.next != null) {
+			if ((itrInx + 1) == index) {
+				tempHead.next = tempHead.next.next;
+				break;
+			} else {
+				tempHead = tempHead.next;
+				itrInx++;
+			}
+		}
 	}
 
 	public static void main(String[] args) {
@@ -105,7 +135,14 @@ public class LinkedList {
 		lList.delete(lList.head);
 		lList.delete(null);
 
+		lList.printLinkList();
+
+		lList.deleteNodeByIndex(2);
+
 		// printLinkedList
 		lList.printLinkList();
+
+//		lList.deleteNodeByIndex(0);
+//		lList.printLinkList();
 	}
 }
