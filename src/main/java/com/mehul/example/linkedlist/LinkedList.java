@@ -14,12 +14,13 @@ public class LinkedList {
 	}
 
 	public void printLinkList() {
+		System.out.println("=========================");
 		Node n = head;
-
 		while (n != null) {
 			System.out.println(n.data);
 			n = n.next;
 		}
+		System.out.println("=========================");
 	}
 
 	// add node at the front (Time complexity : O(1))
@@ -55,6 +56,24 @@ public class LinkedList {
 		lastNode.next = newNode;
 	}
 
+	public void delete(Node node) {
+		if (node == null) {
+			return;
+		}
+
+		if (head == node) {
+			head = head.next;
+			return;
+		}
+
+		Node nodePosition = head;
+		while (nodePosition.next != node) {
+			nodePosition = nodePosition.next;
+		}
+		nodePosition.next = node.next;
+		node.next = null;
+	}
+
 	public static void main(String[] args) {
 		LinkedList lList = new LinkedList();
 
@@ -80,6 +99,13 @@ public class LinkedList {
 		// printLinkedList
 		lList.printLinkList();
 
-	}
+		// delete node
+		lList.delete(third);
+		// delete head node
+		lList.delete(lList.head);
+		lList.delete(null);
 
+		// printLinkedList
+		lList.printLinkList();
+	}
 }
