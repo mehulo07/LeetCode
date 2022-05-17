@@ -22,6 +22,39 @@ public class LinkedList {
 		}
 	}
 
+	// add node at the front (Time complexity : O(1))
+	public void push(int newData) {
+		Node new_node = new Node(newData);
+		new_node.next = head;
+		head = new_node;
+	}
+
+//	(Time complexity : O(1))
+	public void insertAfter(Node preNode, int data) {
+		if (preNode == null) {
+			System.out.println("Previous node must not be empty.");
+		} else {
+			Node newNode = new Node(data);
+			newNode.next = preNode.next;
+			preNode.next = newNode;
+		}
+	}
+
+	// Time complexity O(n)
+	public void append(int data) {
+		Node newNode = new Node(data);
+		if (head == null) {
+			head = newNode;
+			return;
+		}
+		Node lastNode = head;
+		while (lastNode.next != null) {
+			lastNode = lastNode.next;
+		}
+		newNode.next = null;
+		lastNode.next = newNode;
+	}
+
 	public static void main(String[] args) {
 		LinkedList lList = new LinkedList();
 
@@ -35,6 +68,14 @@ public class LinkedList {
 		lList.head.next = second;
 		Node third = new Node(3);
 		second.next = third;
+
+		lList.push(0);
+
+		// Insert After
+		lList.insertAfter(second, 10);
+
+		// Append node at the end
+		lList.append(40);
 
 		// printLinkedList
 		lList.printLinkList();
